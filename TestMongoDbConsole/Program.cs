@@ -11,6 +11,8 @@ namespace TestMongoDbConsole
     {
         static async Task Main(string[] args)
         {
+            BsonDefaults.GuidRepresentation = GuidRepresentation.Standard;
+
             var client = new MongoClient("mongodb://localhost:27017");
             var mongoDatabase = client.GetDatabase("test_db");
             var typeACollection = mongoDatabase.GetCollection<TypeA>("test_mix");
