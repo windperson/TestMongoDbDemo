@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace TestMongoDbConsole.Model
 {
@@ -10,6 +8,8 @@ namespace TestMongoDbConsole.Model
         public ObjectId Id { get; set; }
         public string valueA { get; set; }
         public int Prop1 { get; set; }
+
+        [BsonElement(MongoDbHelper.ClassTypeField)]
         public string type { get; set; }
     }
 }

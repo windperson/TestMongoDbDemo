@@ -9,7 +9,7 @@ namespace TestMongoDbConsole.Model
 
         public double Prop1 { get; set; }
 
-        [BsonElement("type")]
+        [BsonElement(MongoDbHelper.ClassTypeField)]
         public string Type { get; set; }
         [BsonElement("info")]
         public Info Info { get; set; }

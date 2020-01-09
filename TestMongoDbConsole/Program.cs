@@ -12,9 +12,14 @@ namespace TestMongoDbConsole
         {
             var client = new MongoClient("mongodb://localhost:27017");
             var mongoDatabase = client.GetDatabase("test_db");
+
             var typeACollection = mongoDatabase.GetTypedCollection<TypeA>("test_mix");
+            typeACollection.CreateTypedKeyIndex();
             var typeBCollection = mongoDatabase.GetTypedCollection<TypeB>("test_mix");
+            typeBCollection.CreateTypedKeyIndex();
             var typeCCollection = mongoDatabase.GetTypedCollection<TypeC>("test_mix");
+            typeCCollection.CreateTypedKeyIndex();
+            
             var typeAFilter = MongoDbHelper.CreateTypedFilter<TypeA>();
             var typeBFilter = MongoDbHelper.CreateTypedFilter<TypeB>();
             var typeCFilter = MongoDbHelper.CreateTypedFilter<TypeC>();

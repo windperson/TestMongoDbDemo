@@ -11,7 +11,7 @@ namespace TestMongoDbConsole.Model
         public string ValueB { get; set; }
         public Guid Prop1 { get; set; }
 
-        [BsonElement("type")]
+        [BsonElement(MongoDbHelper.ClassTypeField)]
         public string Type { get; set; }
     }
 }
