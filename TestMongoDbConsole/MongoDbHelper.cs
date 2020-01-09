@@ -32,18 +32,6 @@ namespace TestMongoDbConsole
             return collection.Find(typedFilterDefinition);
         }
 
-        public static FilterDefinition<T> AndFilterDefinition<T>(this FilterDefinition<T> typedFilterDefinition,
-            FilterDefinition<T> additionalFilterDefinition) where T : class
-        {
-            return typedFilterDefinition & additionalFilterDefinition;
-        }
-
-        public static FilterDefinition<T> OrFilterDefinition<T>(this FilterDefinition<T> typedFilterDefinition,
-            FilterDefinition<T> additionFilterDefinition) where T : class
-        {
-            return typedFilterDefinition | additionFilterDefinition;
-        }
-
         /// <summary>
         /// Helper method of Filter Definition Builder for POCO MongoDB collection
         /// </summary>
@@ -65,7 +53,7 @@ namespace TestMongoDbConsole
             return TypedFilterBuilder<T>();
         }
 
-        public static UpdateDefinitionBuilder<T> TypedUpdateDefinitionBuilder<T>(this IMongoCollection<T> _) where T : class
+        public static UpdateDefinitionBuilder<T> TypedUpdateBuilder<T>(this IMongoCollection<T> _) where T : class
         {
             return Builders<T>.Update;
         }
